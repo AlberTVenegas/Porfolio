@@ -1,12 +1,12 @@
 ---
-
+import Icons from "./Icons.astro";
 ---
 
-<div class="border-2">
-  <main class="flex w-full h-full flex-col">
-    <div class="flex gap-7 items-center justify-star border-2 w-full">
+<div class="w-full">
+  <main class="flex flex-col">
+    <div class="flex gap-5 items-center justify-star w-full">
       <svg
-        class="size-20 t"
+        class="size-16"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="16 16 32 32"
@@ -40,26 +40,29 @@
           ></defs
         ></svg
       >
-
-      <a href="https://www.linkedin.com/in/albert-venegas/" target="_blank">
-        <!-- From Uiverse.io by ParasSalunke -->
+      <a
+        href="https://www.linkedin.com/in/albert-venegas/"
+        target="_blank"
+        class=""
+      >
         <div class="flex items-center justify-center">
           <div class="relative group">
             <button
-              class="relative inline-block p-px font-semibold leading-6 text-white shadow-2xl cursor-pointer rounded-xl shadow-zinc-900 transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95"
+              class="relative inline-block p-px text-sm font-medium leading-5 text-white cursor-pointer rounded-lg shadow-zinc-900 transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95"
             >
               <span
-                class="absolute inset-0 rounded-xl bg-gradient-to-r from-teal-400 via-blue-500 to-purple-500 p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                class="absolute inset-0 rounded-lg bg-gradient-to-r from-teal-400 via-blue-500 to-purple-500 p-[1.5px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
               ></span>
 
               <span
-                class="relative z-10 block px-6 py-3 rounded-xl bg-gray-900"
+                class="relative z-10 block px-4 py-2 rounded-lg bg-violet-500"
               >
-                <div class="relative z-10 flex items-center space-x-2">
+                <div class="relative z-10 flex items-center space-x-1.5">
                   <span
-                    class="transition-all duration-500 group-hover:translate-x-1"
-                    >Disponible para trabajar</span
+                    class="transition-all duration-500 group-hover:translate"
                   >
+                    Disponible para trabajar
+                  </span>
                 </div>
               </span>
             </button>
@@ -67,7 +70,17 @@
         </div>
       </a>
     </div>
-    <h2>Buenos Dias/Noches, Mi nombre es Albert Venegas</h2>
-    <h1>Soy Desarrollador Full Stack</h1>
+    <div class="flex gap-5 mt-4 mb-4 items-center">
+      <h2 class="text-4xl font-bold">Hey, Soy Albert Venegas</h2>
+    </div>
+
+    <p class="text-lg text-gray-400">
+      Egresado de Ingeniería en Informática 🇨🇱. <span class="font-bold"
+        >Desarrollador Full Stack</span
+      >,<br /> apasionado por construir aplicaciones web modernas con Python,<br
+      /> Django y React. Experiencia en desarrollo Frontend y Backend,<br /> integración
+      de APIs, optimización SEO.
+    </p>
+    <Icons />
   </main>
 </div>
