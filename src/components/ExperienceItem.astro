@@ -3,10 +3,10 @@ const { title, description, link, date } = Astro.props;
 ---
 
 <span
-  class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900"
+  class="absolute flex items-center justify-center bg-violet-100 rounded-full -start-1.5 ring-9 ring-white dark:ring-gray-900 dark:bg-violet-900"
 >
   <svg
-    class="w-2.5 h-2.5 text-blue-800 dark:text-blue-300"
+    class="w-2.5 h-2.5 text-violet-800 dark:text-violet-300"
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -23,10 +23,40 @@ const { title, description, link, date } = Astro.props;
   {title} />
 </h3>
 <time
-  class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
+  class="block mb-2 text-sm font-normal leading-none text-violet-400 dark:text-violet-500"
   >{date}</time
 >
 <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
   {description}
 </p>
 
+{
+  link && (
+    <a
+      href={link}
+      target="_blank"
+      class="inline-flex border-violet-900 border-2  items-center px-4 py-2 gap-2 text-sm font-medium  rounded-lg text-violet-900  hover:bg-violet-950   focus:z-10   focus:ring-violet-100 focus:text-violet-700 dark:text-violet-500    duration-600"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="size-4"
+      >
+        <>
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+          <path d="M3.6 9h16.8" />
+          <path d="M3.6 15h16.8" />
+          <path d="M11.5 3a17 17 0 0 0 0 18" />
+          <path d="M12.5 3a17 17 0 0 1 0 18" />
+        </>
+      </svg>
+      Visita La Web Aquí
+    </a>
+  )
+}
