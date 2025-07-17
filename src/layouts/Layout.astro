@@ -6,6 +6,7 @@ import Experience from "../components/Experience.astro";
 import Projects from "../components/Projects.astro";
 import Skills from "../components/Skills.astro";
 import Footer from "../components/Footer.astro";
+import SobreMi from "../components/SobreMi.astro";
 
 interface Props {
   title?: string;
@@ -36,12 +37,12 @@ const { title = "Albert Venegas - Portfolio" } = Astro.props;
     <div
       class="absolute top-0 z-[-2] w-full bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
     >
-      <header class="fixed top-0 left-0 w-full z-50">
+      <header class="fixed top-0 left-1/2 -translate-x-1/2 w-2xl z-50 ">
         <><Header id="top" /> </>
       </header>
       <main class="w-4xl mx-auto mt-36">
         <slot> <section><Resume /></section></slot>
-        <section class="border-2 border-transparent " id="experiencia">
+        <section class="border-2 border-transparent" id="experiencia">
           <div class="flex items-center gap-5 mb-7 mt-36">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -60,11 +61,17 @@ const { title = "Albert Venegas - Portfolio" } = Astro.props;
 
           <Experience />
         </section>
-        <section class="border-2 border-transparent flex items-center" id="proyectos">
-          <Projects  />
+        <section
+          class="border-2 border-transparent flex items-center"
+          id="proyectos"
+        >
+          <Projects />
         </section>
-        <section class="border-2 border-transparent" id="skills">
+        <section class="border-2 border-transparent" id="tecnologías">
           <Skills />
+        </section>
+        <section class="border-2 border-transparent" id="sobremi">
+          <SobreMi />
         </section>
       </main>
       <footer class="bg-white rounded-lg shadow-sm m-4 dark:bg-[#0A0A0A]">
