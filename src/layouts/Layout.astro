@@ -5,6 +5,7 @@ import Resume from "../components/Resume.astro";
 import Experience from "../components/Experience.astro";
 import Projects from "../components/Projects.astro";
 import Skills from "../components/Skills.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
   title?: string;
@@ -40,8 +41,8 @@ const { title = "Albert Venegas - Portfolio" } = Astro.props;
       </header>
       <main class="w-4xl mx-auto mt-36">
         <slot> <section><Resume /></section></slot>
-        <section class="mt-36" id="experiencia">
-          <div class="flex items-center gap-5 mb-7">
+        <section class="border-2 border-transparent " id="experiencia">
+          <div class="flex items-center gap-5 mb-7 mt-36">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -59,25 +60,15 @@ const { title = "Albert Venegas - Portfolio" } = Astro.props;
 
           <Experience />
         </section>
-        <section class="mt-36 flex items-center">
-          <Projects />
+        <section class="border-2 border-transparent flex items-center" id="proyectos">
+          <Projects  />
         </section>
-        <section class="mt-36">
-          <Skills></Skills>
+        <section class="border-2 border-transparent" id="skills">
+          <Skills />
         </section>
       </main>
       <footer class="bg-white rounded-lg shadow-sm m-4 dark:bg-[#0A0A0A]">
-        <div
-          class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between"
-        >
-          <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400"
-            >© 2025 Albert Venegas™ Casi todos los derechos reservados :D.
-          </span>
-          <ul
-            class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0"
-          >
-          </ul>
-        </div>
+        <Footer />
       </footer>
     </div>
   </body>
