@@ -1,8 +1,12 @@
+---
+
+---
+
 <div>
   <main class="flex flex-col mt-4">
     <div class="flex items-center gap-5">
       <a
-        href=""
+        href="https://www.linkedin.com/in/albert-venegas/"
         target="_blank"
         class="flex items-center justify-center gap-2 text-violet-500 hover:bg-violet-950 cursor-pointer rounded-lg px-2 py-2 duration-500 border-violet-900 border-2"
       >
@@ -17,9 +21,9 @@
         >
         <span class="text-xs">Linkedin</span>
       </a>
-      <a
-        href=""
-        class="flex items-center justify-center gap-2 text-violet-500 hover:bg-violet-950 cursor-pointer rounded-lg px-2 py-2 duration-500 border-violet-900 border-2"
+      <button
+        onclick="copiarTexto()"
+        class="cursor-pointer flex items-center justify-center gap-2 text-violet-500 hover:bg-violet-950 rounded-lg px-2 py-2 duration-500 border-violet-900 border-2"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -47,11 +51,41 @@
             ></path></g
           ></svg
         >
-        <span class="text-xs">Albertvenegas24@gmail.com</span>
-      </a>
+        <span class="text-xs" id="npm-install-copy-text"
+          >Albertvenegas24@gmail.com</span
+        >
+        <span id="default-message">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="size-5"
+            ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+              d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z"
+            ></path><path
+              d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1"
+            ></path></svg
+          >
+        </span>
+        <span id="success-message" class="hidden transition-all"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="size-5"
+            ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+              d="M18.333 6a3.667 3.667 0 0 1 3.667 3.667v8.666a3.667 3.667 0 0 1 -3.667 3.667h-8.666a3.667 3.667 0 0 1 -3.667 -3.667v-8.666a3.667 3.667 0 0 1 3.667 -3.667zm-3.333 -4c1.094 0 1.828 .533 2.374 1.514a1 1 0 1 1 -1.748 .972c-.221 -.398 -.342 -.486 -.626 -.486h-10c-.548 0 -1 .452 -1 1v9.998c0 .32 .154 .618 .407 .805l.1 .065a1 1 0 1 1 -.99 1.738a3 3 0 0 1 -1.517 -2.606v-10c0 -1.652 1.348 -3 3 -3zm1.293 9.293l-3.293 3.292l-1.293 -1.292a1 1 0 0 0 -1.414 1.414l2 2a1 1 0 0 0 1.414 0l4 -4a1 1 0 0 0 -1.414 -1.414"
+            ></path></svg
+          >
+        </span>
+      </button>
 
       <a
-        href=""
+        href="https://github.com/AlberTVenegas"
         target="_blank"
         class="flex items-center justify-center gap-2 text-violet-500 hover:bg-violet-950 border-violet-900 border-2 cursor-pointer rounded-lg px-2 py-2 duration-500"
       >
@@ -70,7 +104,7 @@
         <span class="text-xs">Git Hub</span>
       </a>
       <a
-        href=""
+        href="/public/docs/CV.pdf"
         target="_blank"
         class="flex items-center justify-center gap-2 text-violet-500 hover:bg-violet-950 cursor-pointer rounded-lg px-2 py-2 duration-500 border-violet-900 border-2"
       >
@@ -86,5 +120,33 @@
         <span class="text-xs">CV</span>
       </a>
     </div>
+    <script is:inline>
+      function copiarTexto() {
+        const texto = document.getElementById(
+          "npm-install-copy-text"
+        )?.textContent;
+        const defaultMsg = document.getElementById("default-message");
+        const successMsg = document.getElementById("success-message");
+
+        if (texto && navigator.clipboard) {
+          navigator.clipboard
+            .writeText(texto)
+            .then(() => {
+              defaultMsg.classList.add("hidden");
+              successMsg.classList.remove("hidden");
+
+              setTimeout(() => {
+                defaultMsg.classList.remove("hidden");
+                successMsg.classList.add("hidden");
+              }, 2000);
+            })
+            .catch((err) => {
+              console.error("Error al copiar:", err);
+            });
+        } else {
+          alert("Tu navegador no permite copiar al portapapeles.");
+        }
+      }
+    </script>
   </main>
 </div>

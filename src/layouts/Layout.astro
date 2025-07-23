@@ -1,5 +1,6 @@
 ---
 import "/src/styles/global.css";
+import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Resume from "../components/Resume.astro";
 import Experience from "../components/Experience.astro";
@@ -7,6 +8,7 @@ import Projects from "../components/Projects.astro";
 import Skills from "../components/Skills.astro";
 import Footer from "../components/Footer.astro";
 import SobreMi from "../components/SobreMi.astro";
+import 'flowbite';
 
 interface Props {
   title?: string;
@@ -19,12 +21,16 @@ const { title = "Albert Venegas - Portfolio" } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
     <title>{title}</title>
     <meta
       name="description"
       content="Portfolio de Albert Venegas, Programador Web"
     />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/icon.webp" />
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -74,7 +80,7 @@ const { title = "Albert Venegas - Portfolio" } = Astro.props;
           <SobreMi />
         </section>
       </main>
-      <footer class="bg-white rounded-lg shadow-sm m-4 dark:bg-[#0A0A0A]">
+      <footer class=" rounded-lg shadow-sm m-4 dark:bg-[#0A0A0A]">
         <Footer />
       </footer>
     </div>
@@ -98,4 +104,5 @@ const { title = "Albert Venegas - Portfolio" } = Astro.props;
       }
     }
   </style>
+
 </html>
