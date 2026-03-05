@@ -9,15 +9,24 @@ const EXPERIENCE = [
       "Desarrolle su sitio web en WordPress, utilizando Elementor y diversos plugins para optimizar la experiencia del usuario. Implementé formularios personalizados con WPForms, integré pagos en línea mediante WooCommerce (WebPay, GetNet), y optimicé el rendimiento (WPO) y posicionamiento SEO del sitio. Además, creé y edité contenido turístico orientado a la conversión, aplicando criterios comerciales y de usabilidad.",
     link: "https://puntacaribe.com/",
   },
+  {
+    title: "Soporte TI - Ranco Cherry",
+    date: "Septiembre 2025 - Enero 2026",
+    description:
+      "Apoyo en análisis y validación de datos operativos mediante Power BI, Power Query, DAX y Excel avanzado. Responsable de la revisión, corrección y mantenimiento de dashboards, validación de métricas y detección de inconsistencias en datos durante procesos de reporting y migración a Azure. También participé en el control y seguimiento de información logística y productiva, asegurando la calidad y consistencia de los datos.",
 
+  },
 ];
+
+
 ---
 
 <ol class="relative border-s border-gray-200 dark:border-violet-900 ml-3">
   {
     EXPERIENCE.map((experience) => (
-      <li class="mb-10 ms-8">
-        <ExperienceItem {...experience} />
+      <li class="mb-10 ms-10">
+        <ExperienceItem {...experience}/>
+
       </li>
     ))
   }
