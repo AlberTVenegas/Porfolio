@@ -2,31 +2,123 @@
 import "/src/styles/global.css";
 ---
 
-<header
-  class="flex  h-8 rounded-lg  mt-4 bg-violet-950"
->
-  <nav class="flex items-center justify-between w-full px-5">
-    <a href="#top" class="text-white hover:text-violet-500 transition-colors"
-      >Inicio</a
-    >
-    <a
-      href="#experiencia"
-      class="text-white hover:text-violet-500 transition-colors">Experiencia</a
-    >
+<header id="main-header" class="mt-4 rounded-2xl border border-violet-900/30 bg-neutral-950/60 backdrop-blur-md shadow-md shadow-black/40 transition-all duration-500">
+  <nav class="flex items-center justify-between px-5 py-3">
 
-    <a
-      href="#proyectos"
-      class="text-white hover:text-violet-500 transition-colors">Proyectos</a
-    >
+    <!-- Logo -->
+    <a href="#top" class="text-white font-bold text-sm tracking-wider select-none">
+      <span class="text-violet-400">&lt;</span>AV<span class="text-violet-400">/&gt;</span>
+    </a>
 
-    <a
-      href="#tecnologías"
-      class="text-white hover:text-violet-500 transition-colors">Tecnologías</a
+    <!-- Links desktop -->
+    <ul class="hidden sm:flex items-center gap-0.5">
+      {[
+        { href: "#experiencia", label: "Experiencia" },
+        { href: "#proyectos",   label: "Proyectos"   },
+        { href: "#tecnologías", label: "Tecnologías" },
+        { href: "#sobremi",     label: "Sobre Mí"    },
+      ].map(({ href, label }) => (
+        <li>
+          <a
+            href={href}
+            class="nav-item relative text-gray-400 hover:text-white text-sm px-4 py-2 rounded-lg transition-colors duration-300 group"
+          >
+            {label}
+            <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 group-hover:w-4/5 h-px bg-violet-500 rounded-full transition-all duration-300"></span>
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Botón menú mobile -->
+    <button
+      id="menu-toggle"
+      class="sm:hidden flex flex-col justify-center items-center gap-[5px] w-8 h-8 rounded-lg hover:bg-violet-900/40 transition-colors duration-200"
+      aria-label="Abrir menú"
     >
-        <a
-      href="#sobremi"
-      class="text-white hover:text-violet-500 transition-colors">Sobre Mi</a
-    >
-    
+      <span id="line-1" class="block w-5 h-px bg-violet-300 rounded-full transition-all duration-300 origin-center"></span>
+      <span id="line-2" class="block w-5 h-px bg-violet-300 rounded-full transition-all duration-300"></span>
+      <span id="line-3" class="block w-5 h-px bg-violet-300 rounded-full transition-all duration-300 origin-center"></span>
+    </button>
+
   </nav>
+
+  <!-- Menú mobile -->
+  <div id="mobile-menu" class="sm:hidden hidden flex-col px-3 pb-3 gap-0.5 border-t border-violet-900/30 mt-1 pt-2">
+    <a href="#experiencia" class="mobile-link" onclick="closeMobileMenu()">Experiencia</a>
+    <a href="#proyectos"   class="mobile-link" onclick="closeMobileMenu()">Proyectos</a>
+    <a href="#tecnologías" class="mobile-link" onclick="closeMobileMenu()">Tecnologías</a>
+    <a href="#sobremi"     class="mobile-link" onclick="closeMobileMenu()">Sobre Mí</a>
+  </div>
 </header>
+
+<style>
+  .mobile-link {
+    display: block;
+    color: rgb(156 163 175);
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+  }
+  .mobile-link:hover {
+    color: white;
+    background-color: rgb(76 29 149 / 0.4);
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0);    }
+  }
+  #main-header {
+    animation: slideDown 0.4s ease forwards;
+  }
+</style>
+
+<script is:inline>
+  const toggle = document.getElementById("menu-toggle");
+  const menu   = document.getElementById("mobile-menu");
+  const line1  = document.getElementById("line-1");
+  const line2  = document.getElementById("line-2");
+  const line3  = document.getElementById("line-3");
+
+  let isOpen = false;
+
+  toggle?.addEventListener("click", () => {
+    isOpen = !isOpen;
+    menu?.classList.toggle("hidden",  !isOpen);
+    menu?.classList.toggle("flex",     isOpen);
+
+    // Animación hamburguesa → X
+    if (isOpen) {
+      line1.style.transform = "translateY(6px) rotate(45deg)";
+      line2.style.opacity   = "0";
+      line3.style.transform = "translateY(-6px) rotate(-45deg)";
+    } else {
+      line1.style.transform = "";
+      line2.style.opacity   = "1";
+      line3.style.transform = "";
+    }
+  });
+
+  function closeMobileMenu() {
+    isOpen = false;
+    menu?.classList.add("hidden");
+    menu?.classList.remove("flex");
+    line1.style.transform = "";
+    line2.style.opacity   = "1";
+    line3.style.transform = "";
+  }
+
+  // Scroll: aumenta opacidad del fondo al bajar
+  const header = document.getElementById("main-header");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 20) {
+      header?.classList.remove("bg-neutral-950/60", "border-violet-900/30");
+      header?.classList.add("bg-neutral-950/90", "border-violet-800/50");
+    } else {
+      header?.classList.add("bg-neutral-950/60", "border-violet-900/30");
+      header?.classList.remove("bg-neutral-950/90", "border-violet-800/50");
+    }
+  });
+</script>
