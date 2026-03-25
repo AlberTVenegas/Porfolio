@@ -8,6 +8,7 @@ import Projects from "../components/Projects.astro";
 import Skills from "../components/Skills.astro";
 import Footer from "../components/Footer.astro";
 import SobreMi from "../components/SobreMi.astro";
+import Courses from "../components/Courses.astro";
 
 interface Props {
   title?: string;
@@ -74,6 +75,9 @@ const { title = "Albert Venegas - Portfolio" } = Astro.props;
         </section>
         <section class="border-2 border-transparent" id="tecnologías">
           <Skills />
+        </section>
+        <section class="border-2 border-transparent" id="cursos">
+          <Courses />
         </section>
         <section class="border-2 border-transparent" id="sobremi">
           <SobreMi />
